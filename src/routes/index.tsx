@@ -42,10 +42,10 @@ import paymentTerminal from "@/assets/payment-terminal.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dental Payment Solutions | HealthPaymentTech" },
-      { name: "description", content: "Lower processing costs and offer modern patient payment options with HealthPaymentTech's dental practice solutions." },
-      { property: "og:title", content: "A Healthier Way to Get Paid | HealthPaymentTech" },
-      { property: "og:description", content: "Complete payment solutions built for modern dental practices." },
+      { title: "Dental Payment Solutions | DentalPaymentTech" },
+      { name: "description", content: "Lower processing costs and offer modern patient payment options with DentalPaymentTech's dental payment solutions." },
+      { property: "og:title", content: "A Healthier Way to Get Paid | DentalPaymentTech" },
+      { property: "og:description", content: "Payment solutions built specifically for dental practices." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -88,10 +88,10 @@ const formSchema = z.object({
 
 function BrandLockup() {
   return (
-    <div className="flex min-w-0 items-center gap-3 sm:gap-5" aria-label="Capital PaymentTech and Clover PracticePay">
+    <div className="flex min-w-0 items-center gap-3 sm:gap-5" aria-label="Dental PaymentTech and Clover PracticePay">
       <div className="flex min-w-0 items-center gap-2.5">
-        <span className="grid size-10 shrink-0 place-items-center rounded-full border-4 border-primary text-sm font-black text-primary sm:size-12">C</span>
-        <span className="min-w-0 leading-none"><strong className="block truncate text-lg font-extrabold text-primary sm:text-2xl">CAPITAL</strong><span className="text-xs font-medium tracking-[0.18em] text-navy-soft sm:text-sm">PaymentTech</span></span>
+        <span className="grid size-10 shrink-0 place-items-center rounded-full border-4 border-primary text-sm font-black text-primary sm:size-12">D</span>
+        <span className="min-w-0 leading-none"><strong className="block truncate text-lg font-extrabold text-primary sm:text-2xl">DENTAL</strong><span className="text-xs font-medium tracking-[0.18em] text-navy-soft sm:text-sm">PaymentTech</span></span>
       </div>
       <span className="h-11 w-px shrink-0 bg-border" />
       <div className="flex min-w-0 items-center gap-2">
@@ -137,12 +137,12 @@ function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
               </DialogHeader>
             </div>
             <form onSubmit={submit} className="grid gap-5 px-6 py-7 sm:grid-cols-2 sm:px-8" noValidate>
-              {[
+              {([
                 ["name", "Your name", "Jordan Smith", "text"],
                 ["practice", "Practice name", "Bright Smiles Dental", "text"],
                 ["email", "Work email", "jordan@practice.com", "email"],
                 ["phone", "Phone number", "(555) 555-0123", "tel"],
-              ].map(([id, label, placeholder, type]) => (
+              ] as const).map(([id, label, placeholder, type]) => (
                 <div className="grid gap-2" key={id}>
                   <Label htmlFor={id}>{label}</Label>
                   <Input id={id} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `${id}-error` : undefined} className="h-11" />
@@ -253,7 +253,7 @@ function Index() {
             <div className="lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Patrick Diaz</p><a href="tel:+15614549475" className="text-3xl font-extrabold transition-colors hover:text-accent">561-454-9475</a></div>
             <p className="max-w-[220px] font-script text-3xl leading-none text-accent">Partners in a Healthier Tomorrow</p>
           </div>
-          <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>HealthPaymentTech.com</span><span>Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
+          <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>DentalPaymentTech.com</span><span>Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
         </div>
       </footer>
     </main>
