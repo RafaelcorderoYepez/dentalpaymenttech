@@ -15,6 +15,8 @@ import {
   Landmark,
   Link2,
   Mail,
+  MapPin,
+  Clock,
   Phone,
   Presentation,
   ShieldCheck,
@@ -243,6 +245,48 @@ function Index() {
               <div><h3 className="text-sm font-black uppercase text-primary sm:text-base">{title}</h3><p className="mt-1 text-sm leading-snug text-navy-soft">{description}</p></div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="contact-heading" className="bg-surface-soft py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="font-script text-3xl text-accent">We'd love to hear from you</p>
+            <h2 id="contact-heading" className="mt-2 text-3xl font-black uppercase text-primary sm:text-4xl">Contact Us</h2>
+            <p className="mt-3 text-navy-soft">Questions about payments for your dental practice? Reach out — we're here to help.</p>
+          </div>
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { icon: MapPin, title: "Address", lines: ["8185 Via Ancho Rd #880396", "Boca Raton, FL 33488"], href: "https://www.google.com/maps/search/?api=1&query=8185+Via+Ancho+Rd+%23880396+Boca+Raton+FL+33488" },
+                { icon: Clock, title: "Hours", lines: ["Monday – Friday", "9:00 AM – 6:00 PM EST"] },
+                { icon: Phone, title: "Phone", lines: ["Patrick Diaz", "561-454-9475"], href: "tel:+15614549475" },
+                { icon: Mail, title: "Email", lines: ["contact@dentalpaymenttech.com"], href: "mailto:contact@dentalpaymenttech.com" },
+              ].map(({ icon: Icon, title, lines, href }) => (
+                <article key={title} className="rounded-lg bg-card p-6 shadow-card transition-shadow hover:shadow-float">
+                  <span className="grid size-12 place-items-center rounded-full bg-accent/10 text-accent"><Icon size={22} /></span>
+                  <h3 className="mt-4 text-sm font-black uppercase text-primary">{title}</h3>
+                  {href ? (
+                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="mt-2 block text-sm leading-relaxed text-navy-soft transition-colors hover:text-accent">
+                      {lines.map((line) => <span key={line} className="block">{line}</span>)}
+                    </a>
+                  ) : (
+                    <p className="mt-2 text-sm leading-relaxed text-navy-soft">{lines.map((line) => <span key={line} className="block">{line}</span>)}</p>
+                  )}
+                </article>
+              ))}
+            </div>
+            <div className="overflow-hidden rounded-lg shadow-card">
+              <iframe
+                title="Map: DentalPaymentTech, 8185 Via Ancho Rd, Boca Raton, FL"
+                src="https://www.google.com/maps?q=8185%20Via%20Ancho%20Rd%20Boca%20Raton%20FL%2033433&output=embed"
+                className="h-full min-h-[320px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </div>
       </section>
 
