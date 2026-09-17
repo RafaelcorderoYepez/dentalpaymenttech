@@ -95,7 +95,7 @@ function BrandLockup() {
       <img
         src={capitalLogo.url}
         alt="Capital PaymentTech logo"
-        className="h-9 w-auto max-w-[180px] object-contain sm:h-11 lg:h-16 lg:max-w-[270px]"
+        className="h-9 w-auto max-w-[180px] object-contain sm:h-11 lg:h-20 lg:max-w-[320px]"
       />
       <span className="h-11 w-px shrink-0 bg-border" />
       <div className="flex min-w-0 items-center gap-2">
