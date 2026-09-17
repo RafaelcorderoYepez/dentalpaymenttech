@@ -5,7 +5,7 @@ import {
   BadgeCheck,
   Banknote,
   CalendarCheck2,
-  Contactless,
+  Nfc,
   FileCheck2,
   HeartPulse,
   MonitorSmartphone,
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/practicepay")({
 });
 
 const highlights = [
-  { icon: Contactless, title: "Dental HSA/FSA & Contactless Payments", description: "Tap-to-Pay, Apple Pay, and health savings cards accepted everywhere in your office." },
+  { icon: Nfc, title: "Dental HSA/FSA & Contactless Payments", description: "Tap-to-Pay, Apple Pay, and health savings cards accepted everywhere in your office." },
   { icon: WalletCards, title: "Treatment Plan Payment Options & Card-on-File", description: "Flexible installments and securely vaulted cards for ongoing dental care." },
   { icon: RefreshCcw, title: "Seamless EHR & Dental PMS Auto-Syncing", description: "Payments post straight into your practice management software — no double entry." },
 ];
