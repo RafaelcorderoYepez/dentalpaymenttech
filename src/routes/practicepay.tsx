@@ -33,6 +33,10 @@ import cloverMini from "@/assets/clover-mini-device.png";
 import contactlessPayments from "@/assets/practicepay-contactless.jpg";
 import paymentOptions from "@/assets/practicepay-payment-options.jpg";
 import pmsSync from "@/assets/practicepay-pms-sync.jpg";
+import chairsideCheckout from "@/assets/practicepay-chairside-checkout.jpg";
+import treatmentFinancing from "@/assets/practicepay-treatment-financing.jpg";
+import textToPay from "@/assets/practicepay-text-to-pay.jpg";
+import ledgerPosting from "@/assets/practicepay-ledger-posting.jpg";
 
 export const Route = createFileRoute("/practicepay")({
   head: () => ({
@@ -55,10 +59,10 @@ const highlights = [
 ];
 
 const advantages = [
-  { icon: Stethoscope, title: "Chairside & Exam Room Checkout", description: "Collect deductibles, copays, or cosmetic balance payments right from the dental chair using mobile devices." },
-  { icon: CalendarCheck2, title: "Dental Treatment Financing & Plans", description: "Offer recurring monthly payment arrangements for large procedures like implants, aligners, and crowns." },
-  { icon: Smartphone, title: "Instant Text-to-Pay for Unpaid Statements", description: "Send automated SMS payment links for balance remainders directly to patient smartphones." },
-  { icon: FileCheck2, title: "Direct Ledger Posting", description: "Automatically reconcile patient payments back into your Dental Practice Management System (PMS) without double entry." },
+  { image: chairsideCheckout, icon: Stethoscope, title: "Chairside & Exam Room Checkout", description: "Collect deductibles, copays, or cosmetic balance payments right from the dental chair using mobile devices.", alt: "Dental assistant collecting a chairside payment from a patient" },
+  { image: treatmentFinancing, icon: CalendarCheck2, title: "Dental Treatment Financing & Plans", description: "Offer recurring monthly payment arrangements for large procedures like implants, aligners, and crowns.", alt: "Dental coordinator reviewing a treatment financing plan with a patient" },
+  { image: textToPay, icon: Smartphone, title: "Instant Text-to-Pay for Unpaid Statements", description: "Send automated SMS payment links for balance remainders directly to patient smartphones.", alt: "Patient completing a secure dental payment from a smartphone" },
+  { image: ledgerPosting, icon: FileCheck2, title: "Direct Ledger Posting", description: "Automatically reconcile patient payments back into your Dental Practice Management System (PMS) without double entry.", alt: "Dental administrator reviewing an automatically posted patient payment" },
 ];
 
 const transparencyPoints = [
@@ -198,10 +202,15 @@ function PracticePayPage() {
           <p className="font-script text-3xl text-accent">Power Your Dental Practice With One Platform</p>
           <h2 id="advantages-heading" className="mt-2 max-w-3xl text-3xl font-black uppercase text-primary sm:text-4xl">Designed for the Front Desk & Chairside Dental Checkout</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {advantages.map(({ icon: Icon, title, description }) => (
-              <article key={title} className="group grid grid-cols-[auto_minmax(0,1fr)] items-start gap-5 rounded-xl border border-slate-100 bg-background p-6 shadow-sm transition-shadow hover:shadow-md sm:p-7">
-                <span className="grid size-14 shrink-0 place-items-center rounded-full bg-mint text-accent transition-transform duration-300 group-hover:-translate-y-1"><Icon size={28} /></span>
-                <div><h3 className="text-lg font-extrabold text-primary">{title}</h3><p className="mt-2 leading-relaxed text-muted-foreground">{description}</p></div>
+            {advantages.map(({ image, icon: Icon, title, description, alt }) => (
+              <article key={title} className="group overflow-hidden rounded-xl border border-slate-100 bg-background shadow-sm transition-shadow hover:shadow-md">
+                <div className="aspect-[3/2] overflow-hidden bg-surface-soft">
+                  <img src={image} alt={alt} width={1200} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-5 p-6 sm:p-7">
+                  <span className="grid size-14 shrink-0 place-items-center rounded-full bg-mint text-accent transition-transform duration-300 group-hover:-translate-y-1"><Icon size={28} /></span>
+                  <div><h3 className="text-lg font-extrabold text-primary">{title}</h3><p className="mt-2 leading-relaxed text-muted-foreground">{description}</p></div>
+                </div>
               </article>
             ))}
           </div>
