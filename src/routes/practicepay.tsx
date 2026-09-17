@@ -30,6 +30,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import cloverFlex from "@/assets/clover-flex-device.png";
 import cloverMini from "@/assets/clover-mini-device.png";
+import contactlessPayments from "@/assets/practicepay-contactless.jpg";
+import paymentOptions from "@/assets/practicepay-payment-options.jpg";
+import pmsSync from "@/assets/practicepay-pms-sync.jpg";
 
 export const Route = createFileRoute("/practicepay")({
   head: () => ({
@@ -46,9 +49,9 @@ export const Route = createFileRoute("/practicepay")({
 });
 
 const highlights = [
-  { icon: Nfc, title: "Dental HSA/FSA & Contactless Payments", description: "Tap-to-Pay, Apple Pay, and health savings cards accepted everywhere in your office." },
-  { icon: WalletCards, title: "Treatment Plan Payment Options & Card-on-File", description: "Flexible installments and securely vaulted cards for ongoing dental care." },
-  { icon: RefreshCcw, title: "Seamless EHR & Dental PMS Auto-Syncing", description: "Payments post straight into your practice management software — no double entry." },
+  { image: contactlessPayments, icon: Nfc, title: "Dental HSA/FSA & Contactless Payments", description: "Tap-to-Pay, Apple Pay, and health savings cards accepted everywhere in your office.", alt: "Dental receptionist accepting a contactless patient payment" },
+  { image: paymentOptions, icon: WalletCards, title: "Treatment Plan Payment Options & Card-on-File", description: "Flexible installments and securely vaulted cards for ongoing dental care.", alt: "Dental care coordinator reviewing flexible payment options with a patient" },
+  { image: pmsSync, icon: RefreshCcw, title: "Seamless EHR & Dental PMS Auto-Syncing", description: "Payments post straight into your practice management software — no double entry.", alt: "Dental office manager using an integrated patient payment dashboard" },
 ];
 
 const advantages = [
@@ -173,11 +176,16 @@ function PracticePayPage() {
             </div>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {highlights.map(({ icon: Icon, title, description }) => (
-              <article key={title} className="group rounded-xl border border-slate-100 bg-card p-7 shadow-sm transition-shadow hover:shadow-md">
-                <span className="grid size-14 place-items-center rounded-full bg-mint text-accent transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105"><Icon size={28} /></span>
-                <h2 className="mt-5 text-lg font-extrabold leading-tight text-primary">{title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+            {highlights.map(({ image, icon: Icon, title, description, alt }) => (
+              <article key={title} className="group overflow-hidden rounded-xl border border-slate-100 bg-card shadow-sm transition-shadow hover:shadow-md">
+                <div className="aspect-[4/3] overflow-hidden bg-surface-soft">
+                  <img src={image} alt={alt} width={1200} height={912} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div className="p-6 sm:p-7">
+                  <span className="grid size-14 place-items-center rounded-full bg-mint text-accent transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105"><Icon size={28} /></span>
+                  <h2 className="mt-5 text-lg font-extrabold leading-tight text-primary">{title}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                </div>
               </article>
             ))}
           </div>
