@@ -260,7 +260,7 @@ function Index() {
               {[
                 { icon: MapPin, title: "Address", lines: ["8185 Via Ancho Rd #880396", "Boca Raton, FL 33488"], href: "https://www.google.com/maps/search/?api=1&query=8185+Via+Ancho+Rd+%23880396+Boca+Raton+FL+33488" },
                 { icon: Clock, title: "Hours", lines: ["Monday – Friday", "9:00 AM – 6:00 PM EST"] },
-                { icon: Phone, title: "Phone", lines: ["Patrick Diaz", "561-454-9475"], href: "tel:+15614549475" },
+                { icon: Phone, title: "Phone", lines: ["Sales", "561-454-9475"], href: "tel:+15614549475" },
                 { icon: Mail, title: "Email", lines: ["contact@dentalpaymenttech.com"], href: "mailto:contact@dentalpaymenttech.com" },
               ].map(({ icon: Icon, title, lines, href }) => (
                 <article key={title} className="rounded-lg bg-card p-6 shadow-card transition-shadow hover:shadow-float">
