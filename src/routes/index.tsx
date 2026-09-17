@@ -25,6 +25,11 @@ import {
 import { SiteFooter, SiteHeader, SavingsDialog } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import dentalOffice from "@/assets/dental-office.jpg";
+import surchargeProgramImage from "@/assets/home-surcharge-program.jpg";
+import lowDebitRatesImage from "@/assets/home-low-debit-rates.jpg";
+import nextDayFundingImage from "@/assets/home-next-day-funding.jpg";
+import hsaFsaReadyImage from "@/assets/home-hsa-fsa-ready.jpg";
+import paymentLinksImage from "@/assets/home-payment-links.jpg";
 import paymentTerminal from "@/assets/clover-flex-device.png";
 
 export const Route = createFileRoute("/")({
@@ -42,11 +47,11 @@ export const Route = createFileRoute("/")({
 });
 
 const features = [
-  { icon: CircleDollarSign, title: "Surcharge Program", description: "Pass credit card fees legally and easily" },
-  { icon: CreditCard, title: "Low Debit Rates", description: "Keep costs low on debit transactions" },
-  { icon: Zap, title: "Next-Day Funding", description: "Improve your cash flow" },
-  { icon: HeartPulse, title: "HSA/FSA Ready", description: "Accept HSA/FSA payments with ease" },
-  { icon: Smartphone, title: "Payment Links", description: "Collect balances anytime, anywhere" },
+  { icon: CircleDollarSign, image: surchargeProgramImage, imageAlt: "Patient making a contactless payment at a dental office", title: "Surcharge Program", description: "Pass credit card fees legally and easily" },
+  { icon: CreditCard, image: lowDebitRatesImage, imageAlt: "Patient using a debit card at a dental office terminal", title: "Low Debit Rates", description: "Keep costs low on debit transactions" },
+  { icon: Zap, image: nextDayFundingImage, imageAlt: "Dental practice manager reviewing improved cash flow", title: "Next-Day Funding", description: "Improve your cash flow" },
+  { icon: HeartPulse, image: hsaFsaReadyImage, imageAlt: "Patient using a health benefits card for dental care", title: "HSA/FSA Ready", description: "Accept HSA/FSA payments with ease" },
+  { icon: Smartphone, image: paymentLinksImage, imageAlt: "Patient completing a dental payment securely by phone", title: "Payment Links", description: "Collect balances anytime, anywhere" },
 ];
 
 const benefits = [
@@ -102,12 +107,17 @@ function Index() {
       <section aria-labelledby="features-heading" className="bg-card py-14 sm:py-18">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 id="features-heading" className="sr-only">Payment features</h2>
-          <div className="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-5">
-            {features.map(({ icon: Icon, title, description }) => (
-              <article key={title} className="group text-center last:col-span-2 last:mx-auto last:max-w-[220px] md:last:col-span-1 md:last:max-w-none">
-                <span className="mx-auto grid size-20 place-items-center rounded-full bg-mint text-accent transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 sm:size-24"><Icon size={40} strokeWidth={2.2} /></span>
-                <h3 className="mt-5 text-lg font-extrabold leading-tight text-primary sm:text-xl">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">{description}</p>
+          <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-5">
+            {features.map(({ icon: Icon, image, imageAlt, title, description }) => (
+              <article key={title} className="group min-w-0 overflow-hidden rounded-lg border border-border bg-card text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-float last:col-span-2 last:mx-auto last:w-full last:max-w-[280px] lg:last:col-span-1 lg:last:max-w-none">
+                <div className="relative aspect-[4/3] overflow-hidden bg-mint">
+                  <img src={image} alt={imageAlt} width={944} height={704} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span className="absolute bottom-3 left-3 grid size-11 place-items-center rounded-full border-2 border-card bg-accent text-accent-foreground shadow-card sm:size-12"><Icon size={23} strokeWidth={2.2} /></span>
+                </div>
+                <div className="p-4 sm:p-5 lg:px-3">
+                  <h3 className="text-base font-extrabold leading-tight text-primary sm:text-lg">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                </div>
               </article>
             ))}
           </div>
