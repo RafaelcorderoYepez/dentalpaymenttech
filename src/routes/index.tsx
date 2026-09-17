@@ -39,7 +39,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import dentalOffice from "@/assets/dental-office.jpg";
-import paymentTerminal from "@/assets/clover-device-clean.png.asset.json";
+import paymentTerminal from "@/assets/clover-flex-device.png";
 import capitalLogo from "@/assets/capital-paymenttech-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
