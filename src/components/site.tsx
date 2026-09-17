@@ -39,6 +39,13 @@ const formSchema = z.object({
   phone: z.string().trim().min(7, "Please enter a valid phone number.").max(24),
 });
 
+const dialogFields = [
+  ["name", "Your name", "Jordan Smith", "text"],
+  ["practice", "Practice name", "Bright Smiles Dental", "text"],
+  ["email", "Work email", "jordan@practice.com", "email"],
+  ["phone", "Phone number", "(555) 555-0123", "tel"],
+] as const;
+
 export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
