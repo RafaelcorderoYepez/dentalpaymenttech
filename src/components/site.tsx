@@ -74,12 +74,7 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
               </DialogHeader>
             </div>
             <form onSubmit={submit} className="grid gap-5 px-4 py-7 sm:grid-cols-2 sm:px-8" noValidate>
-              {[
-                ["name", "Your name", "Jordan Smith", "text"],
-                ["practice", "Practice name", "Bright Smiles Dental", "text"],
-                ["email", "Work email", "jordan@practice.com", "email"],
-                ["phone", "Phone number", "(555) 555-0123", "tel"],
-              ] as const).map(([id, label, placeholder, type]) => (
+              {dialogFields.map(([id, label, placeholder, type]) => (
                 <div className="grid min-w-0 gap-2" key={id}>
                   <Label htmlFor={id}>{label}</Label>
                   <Input id={id} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `${id}-error` : undefined} className="h-11 max-w-full" />
