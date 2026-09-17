@@ -37,6 +37,9 @@ import chairsideCheckout from "@/assets/practicepay-chairside-checkout.jpg";
 import treatmentFinancing from "@/assets/practicepay-treatment-financing.jpg";
 import textToPay from "@/assets/practicepay-text-to-pay.jpg";
 import ledgerPosting from "@/assets/practicepay-ledger-posting.jpg";
+import flexibleReception from "@/assets/practicepay-flexible-reception.jpg";
+import rapidDeposit from "@/assets/practicepay-rapid-deposit.jpg";
+import officeManagement from "@/assets/practicepay-office-management.jpg";
 
 export const Route = createFileRoute("/practicepay")({
   head: () => ({
@@ -280,7 +283,33 @@ function PracticePayPage() {
         </div>
       </section>
 
-      {/* 5. PMS Integration Stat Banner */}
+      {/* 5. Practice Flexibility */}
+      <section aria-labelledby="flexibility-heading" className="bg-surface-soft py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl overflow-hidden px-4 sm:px-6 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,1.2fr)] lg:px-8">
+          <div className="flex flex-col justify-center bg-card px-6 py-10 sm:px-10 lg:px-12 lg:py-14">
+            <p className="font-script text-3xl text-accent">Financial flexibility for healthier growth</p>
+            <h2 id="flexibility-heading" className="mt-2 text-3xl font-black uppercase leading-tight text-primary sm:text-4xl">
+              Keep Your Dental Practice Moving Forward
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-soft">
+              Give your practice more room to grow with convenient access to Clover Capital, faster deposits, and integrated business tools that help your team stay focused on patient care.
+            </p>
+          </div>
+          <div className="grid min-w-0 sm:grid-cols-3">
+            {[
+              { image: flexibleReception, alt: "Dental receptionist helping a patient complete a payment" },
+              { image: rapidDeposit, alt: "Dental practice manager confirming a successful deposit on a phone" },
+              { image: officeManagement, alt: "Dental office manager reviewing practice performance tools" },
+            ].map(({ image, alt }) => (
+              <div key={alt} className="group aspect-[4/3] min-w-0 overflow-hidden sm:aspect-auto sm:min-h-[360px]">
+                <img src={image} alt={alt} width={1200} height={900} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. PMS Integration Stat Banner */}
       <section aria-labelledby="pms-heading" className="bg-primary py-16 text-primary-foreground sm:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-xs font-bold uppercase tracking-widest text-accent">Seamless EHR/PMS Sync</p>
@@ -294,7 +323,7 @@ function PracticePayPage() {
         </div>
       </section>
 
-      {/* 6. FAQ */}
+      {/* 7. FAQ */}
       <section aria-labelledby="faq-heading" className="bg-surface-soft py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 id="faq-heading" className="text-center text-3xl font-black uppercase text-primary sm:text-4xl">Frequently Asked <span className="text-accent">Questions</span></h2>
@@ -309,7 +338,7 @@ function PracticePayPage() {
         </div>
       </section>
 
-      {/* 7. CTA / Consultation Form */}
+      {/* 8. CTA / Consultation Form */}
       <section id="quote-form" aria-labelledby="quote-heading" className="bg-card py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
