@@ -39,7 +39,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import dentalOffice from "@/assets/dental-office.jpg";
-import paymentTerminal from "@/assets/clover-device-clean.png.asset.json";
+import paymentTerminal from "@/assets/clover-flex-device.png";
 import capitalLogo from "@/assets/capital-paymenttech-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -230,7 +230,7 @@ function Index() {
             </div>
           </div>
           <aside className="relative min-h-[520px] overflow-hidden rounded-lg bg-card shadow-card">
-            <img src={paymentTerminal.url} alt="Clover payment terminal in a modern dental office" width={1024} height={1280} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={paymentTerminal} alt="Clover Flex payment terminal in a modern dental office" width={928} height={1152} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--card)_0%,color-mix(in_oklab,var(--card)_88%,transparent)_24%,transparent_58%)]" />
             <div className="relative p-7 sm:p-8"><h2 className="max-w-xs text-4xl font-black leading-none text-primary">Complimentary Equipment</h2><p className="mt-4 max-w-[240px] text-xl text-navy-soft">Clover devices at no upfront cost</p></div>
             <p className="absolute bottom-6 right-6 max-w-[220px] rotate-[-4deg] text-right font-script text-3xl leading-none text-accent">Payments Made Simple for a Healthier Tomorrow</p>
