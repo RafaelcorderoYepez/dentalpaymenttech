@@ -40,6 +40,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import dentalOffice from "@/assets/dental-office.jpg";
 import paymentTerminal from "@/assets/payment-terminal.jpg";
+import capitalLogo from "@/assets/capital-paymenttech-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
