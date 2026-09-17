@@ -299,7 +299,7 @@ function Index() {
             <div className="lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Sales</p><a href="tel:+15614549475" className="text-3xl font-extrabold transition-colors hover:text-accent">(954) 451-6808</a></div>
             <p className="max-w-[220px] font-script text-3xl leading-none text-accent">Partners in a Healthier Tomorrow</p>
           </div>
-          <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>DentalPaymentTech.com</span><span>Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
+          <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Capital PaymentTech</span><span>Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
         </div>
       </footer>
     </main>
