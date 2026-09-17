@@ -83,8 +83,8 @@ function Index() {
             <div className="my-6 h-1 w-20 rounded-full bg-accent" />
             <p className="max-w-xl text-lg leading-relaxed text-navy-soft sm:text-xl">Lower processing costs. Better patient payment options. A stronger practice.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <SavingsDialog trigger={<Button variant="hero" size="lg">See how much you could save <ArrowRight /></Button>} />
-              <Button asChild variant="outline" size="lg"><a href="tel:+15614549475"><Phone /> Call Sales</a></Button>
+              <SavingsDialog trigger={<Button variant="hero" size="lg" className="px-5 sm:px-8">See how much you could save <ArrowRight /></Button>} />
+              <Button asChild variant="outline" size="lg" className="px-5 sm:px-8"><a href="tel:+15614549475"><Phone /> Call Sales</a></Button>
             </div>
           </div>
           <div className="rise-in rise-in-delay mt-auto flex flex-col items-end gap-5 pb-3 lg:mt-0 lg:self-end lg:pb-10">
