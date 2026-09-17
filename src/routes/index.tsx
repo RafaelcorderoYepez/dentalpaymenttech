@@ -39,7 +39,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import dentalOffice from "@/assets/dental-office.jpg";
-import paymentTerminal from "@/assets/payment-terminal.jpg";
+import paymentTerminal from "@/assets/clover-device.png.asset.json";
 import capitalLogo from "@/assets/capital-paymenttech-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -95,7 +95,7 @@ function BrandLockup() {
       <img
         src={capitalLogo.url}
         alt="Capital PaymentTech logo"
-        className="h-9 w-auto max-w-[180px] object-contain sm:h-11"
+        className="h-9 w-auto max-w-[180px] object-contain sm:h-11 lg:h-16 lg:max-w-[270px]"
       />
       <span className="h-11 w-px shrink-0 bg-border" />
       <div className="flex min-w-0 items-center gap-2">
@@ -230,10 +230,14 @@ function Index() {
             </div>
           </div>
           <aside className="relative min-h-[520px] overflow-hidden rounded-lg bg-card shadow-card">
-            <img src={paymentTerminal} alt="Modern white countertop payment terminal in a dental practice" width={1024} height={1024} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--card)_0%,color-mix(in_oklab,var(--card)_88%,transparent)_24%,transparent_58%)]" />
-            <div className="relative p-7 sm:p-8"><h2 className="max-w-xs text-4xl font-black leading-none text-primary">Complimentary Equipment</h2><p className="mt-4 max-w-[240px] text-xl text-navy-soft">Clover devices at no upfront cost</p></div>
-            <p className="absolute bottom-6 right-6 max-w-[220px] rotate-[-4deg] text-right font-script text-3xl leading-none text-accent">Payments Made Simple for a Healthier Tomorrow</p>
+            <img
+              src={paymentTerminal.url}
+              alt="Clover payment terminal - complimentary equipment for dental practices"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </aside>
         </div>
       </section>
