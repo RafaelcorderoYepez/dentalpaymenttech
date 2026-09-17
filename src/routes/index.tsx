@@ -40,6 +40,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import dentalOffice from "@/assets/dental-office.jpg";
 import paymentTerminal from "@/assets/payment-terminal.jpg";
+import capitalLogo from "@/assets/capital-paymenttech-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -90,11 +91,12 @@ const formSchema = z.object({
 
 function BrandLockup() {
   return (
-    <div className="flex min-w-0 items-center gap-3 sm:gap-5" aria-label="Dental PaymentTech and Clover PracticePay">
-      <div className="flex min-w-0 items-center gap-2.5">
-        <span className="grid size-10 shrink-0 place-items-center rounded-full border-4 border-primary text-sm font-black text-primary sm:size-12">D</span>
-        <span className="min-w-0 leading-none"><strong className="block truncate text-lg font-extrabold text-primary sm:text-2xl">DENTAL</strong><span className="text-xs font-medium tracking-[0.18em] text-navy-soft sm:text-sm">PaymentTech</span></span>
-      </div>
+    <div className="flex min-w-0 items-center gap-3 sm:gap-5" aria-label="Capital PaymentTech and Clover PracticePay">
+      <img
+        src={capitalLogo.url}
+        alt="Capital PaymentTech logo"
+        className="h-9 w-auto max-w-[180px] object-contain sm:h-11"
+      />
       <span className="h-11 w-px shrink-0 bg-border" />
       <div className="flex min-w-0 items-center gap-2">
         <span className="grid size-9 shrink-0 grid-cols-2 gap-0.5 sm:size-11">{[0,1,2,3].map((n) => <i key={n} className="rounded-[45%] bg-accent" />)}</span>
