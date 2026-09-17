@@ -80,13 +80,13 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
                 ["email", "Work email", "jordan@practice.com", "email"],
                 ["phone", "Phone number", "(555) 555-0123", "tel"],
               ] as const).map(([id, label, placeholder, type]) => (
-                <div className="grid gap-2" key={id}>
+                <div className="grid min-w-0 gap-2" key={id}>
                   <Label htmlFor={id}>{label}</Label>
-                  <Input id={id} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `${id}-error` : undefined} className="h-11" />
+                  <Input id={id} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `${id}-error` : undefined} className="h-11 max-w-full" />
                   {errors[id] && <p id={`${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
                 </div>
               ))}
-              <Button type="submit" size="lg" variant="hero" className="mt-1 w-full sm:col-span-2">Request my analysis <ArrowRight /></Button>
+              <Button type="submit" size="lg" variant="hero" className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">Request my analysis <ArrowRight /></Button>
               <p className="text-center text-xs text-muted-foreground sm:col-span-2">Your information will only be used to respond to this request.</p>
             </form>
           </>
