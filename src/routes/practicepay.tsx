@@ -127,22 +127,13 @@ function QuoteForm() {
     );
   }
 
-  const fields = [
-    ["practice", "Practice / Clinic Name", "Bright Smiles Dental", "text"],
-    ["name", "Contact Name", "Jordan Smith", "text"],
-    ["email", "Email", "jordan@practice.com", "email"],
-    ["phone", "Phone", "(555) 555-0123", "tel"],
-    ["chairs", "Number of Dental Chairs / Op Rooms", "e.g. 6", "text"],
-    ["software", "Current Dental Software (EHR/PMS)", "e.g. Dentrix, Eaglesoft, Open Dental", "text"],
-  ] as const;
-
   return (
     <form onSubmit={submit} noValidate className="grid gap-5 rounded-xl border border-slate-100 bg-card p-4 shadow-sm sm:grid-cols-2 sm:p-8">
-      {fields.map(([id, label, placeholder, type]) => (
+      {quoteFields.map(([id, label, placeholder, type]) => (
         <div className="grid min-w-0 gap-2" key={id}>
           <Label htmlFor={`quote-${id}`}>{label}</Label>
           <Input id={`quote-${id}`} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `quote-${id}-error` : undefined} className="h-11 max-w-full" />
-          {errors[id] && <p id={`quote-${id}-error` className="text-xs font-medium text-destructive">{errors[id]}</p>}
+          {errors[id] && <p id={`quote-${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
         </div>
       ))}
       <Button type="submit" size="lg" variant="hero" className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">Get Custom Dental Quote & Demo <ArrowRight /></Button>
