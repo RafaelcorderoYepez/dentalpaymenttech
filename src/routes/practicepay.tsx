@@ -137,16 +137,16 @@ function QuoteForm() {
   ] as const;
 
   return (
-    <form onSubmit={submit} noValidate className="grid gap-5 rounded-xl border border-slate-100 bg-card p-6 shadow-sm sm:grid-cols-2 sm:p-8">
+    <form onSubmit={submit} noValidate className="grid gap-5 rounded-xl border border-slate-100 bg-card p-4 shadow-sm sm:grid-cols-2 sm:p-8">
       {fields.map(([id, label, placeholder, type]) => (
-        <div className="grid gap-2" key={id}>
+        <div className="grid min-w-0 gap-2" key={id}>
           <Label htmlFor={`quote-${id}`}>{label}</Label>
-          <Input id={`quote-${id}`} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `quote-${id}-error` : undefined} className="h-11" />
-          {errors[id] && <p id={`quote-${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
+          <Input id={`quote-${id}`} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `quote-${id}-error` : undefined} className="h-11 max-w-full" />
+          {errors[id] && <p id={`quote-${id}-error` className="text-xs font-medium text-destructive">{errors[id]}</p>}
         </div>
       ))}
-      <Button type="submit" size="lg" variant="hero" className="mt-1 w-full sm:col-span-2">Get Custom Dental Quote & Demo <ArrowRight /></Button>
-      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:col-span-2">
+      <Button type="submit" size="lg" variant="hero" className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">Get Custom Dental Quote & Demo <ArrowRight /></Button>
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:gap-x-6 sm:col-span-2">
         {trustBadges.map(({ icon: Icon, label }) => (
           <span key={label} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-navy-soft"><Icon size={16} className="text-accent" /> {label}</span>
         ))}
