@@ -99,34 +99,86 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
 }
 
 export function SiteHeader() {
+  const [visible, setVisible] = useState(true);
+  const [spacerHeight, setSpacerHeight] = useState(0);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const updateHeight = () => setSpacerHeight(header.offsetHeight);
+    updateHeight();
+
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(header);
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            setVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            setVisible(true);
+          }
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (e.clientY < 64) setVisible(true);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onMouseMove);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
   return (
-    <header className="relative z-10 border-b border-border/60 bg-card/95">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" aria-label="DentalPaymentTech home" className="min-w-0"><BrandLockup /></Link>
-        <nav className="flex items-center gap-2 sm:gap-6" aria-label="Main navigation">
-          <Link
-            to="/practicepay"
-            className="hidden text-sm font-bold text-primary transition-colors hover:text-accent md:inline-flex [&.active]:text-accent"
-            activeOptions={{ exact: true }}
-          >
-            Clover PracticePay
-          </Link>
-          <SavingsDialog trigger={<Button variant="hero" className="hidden sm:inline-flex">Free savings analysis <ArrowRight /></Button>} />
-          <SavingsDialog trigger={<Button variant="hero" size="icon" className="sm:hidden" aria-label="Request free savings analysis"><ArrowRight /></Button>} />
-        </nav>
-      </div>
-      <div className="border-t border-border/50 bg-card md:hidden">
-        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6">
-          <Link
-            to="/practicepay"
-            className="text-sm font-bold text-primary transition-colors hover:text-accent [&.active]:text-accent"
-            activeOptions={{ exact: true }}
-          >
-            Clover PracticePay
-          </Link>
+    <>
+      <div aria-hidden="true" style={{ height: spacerHeight }} />
+      <header
+        ref={headerRef}
+        className={`fixed left-0 right-0 top-0 z-50 border-b border-border/60 bg-card/95 backdrop-blur-md transition-transform duration-300 ease-out ${visible ? "translate-y-0" : "-translate-y-full"}`}
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
+          <Link to="/" aria-label="DentalPaymentTech home" className="min-w-0"><BrandLockup /></Link>
+          <nav className="flex items-center gap-2 sm:gap-6" aria-label="Main navigation">
+            <Link
+              to="/practicepay"
+              className="hidden text-sm font-bold text-primary transition-colors hover:text-accent md:inline-flex [&.active]:text-accent"
+              activeOptions={{ exact: true }}
+            >
+              Clover PracticePay
+            </Link>
+            <SavingsDialog trigger={<Button variant="hero" className="hidden sm:inline-flex">Free savings analysis <ArrowRight /></Button>} />
+            <SavingsDialog trigger={<Button variant="hero" size="icon" className="sm:hidden" aria-label="Request free savings analysis"><ArrowRight /></Button>} />
+          </nav>
         </div>
-      </div>
-    </header>
+        <div className="border-t border-border/50 bg-card md:hidden">
+          <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6">
+            <Link
+              to="/practicepay"
+              className="text-sm font-bold text-primary transition-colors hover:text-accent [&.active]:text-accent"
+              activeOptions={{ exact: true }}
+            >
+              Clover PracticePay
+            </Link>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }
 
