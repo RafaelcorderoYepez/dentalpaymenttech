@@ -101,6 +101,15 @@ const trustBadges = [
   { icon: Wrench, label: "On-Site Installation & Support" },
 ];
 
+const quoteFields = [
+  ["practice", "Practice / Clinic Name", "Bright Smiles Dental", "text"],
+  ["name", "Contact Name", "Jordan Smith", "text"],
+  ["email", "Email", "jordan@practice.com", "email"],
+  ["phone", "Phone", "(555) 555-0123", "tel"],
+  ["chairs", "Number of Dental Chairs / Op Rooms", "e.g. 6", "text"],
+  ["software", "Current Dental Software (EHR/PMS)", "e.g. Dentrix, Eaglesoft, Open Dental", "text"],
+] as const;
+
 function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
