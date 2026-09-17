@@ -60,21 +60,21 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="max-h-[92vh] w-[calc(100%-2rem)] overflow-y-auto border-border bg-card p-0 shadow-float sm:max-w-xl">
         {submitted ? (
-          <div className="px-6 py-14 text-center sm:px-10">
+          <div className="px-4 py-14 text-center sm:px-10">
             <span className="mx-auto grid size-16 place-items-center rounded-full bg-mint text-accent"><ShieldCheck size={34} /></span>
             <DialogTitle className="mt-6 text-3xl font-extrabold text-primary">Request received</DialogTitle>
             <DialogDescription className="mx-auto mt-3 max-w-sm text-base leading-relaxed">Thank you. Our team will contact you soon to arrange your complimentary savings analysis.</DialogDescription>
           </div>
         ) : (
           <>
-            <div className="bg-primary px-6 py-7 text-primary-foreground sm:px-8">
+            <div className="bg-primary px-4 py-7 text-primary-foreground sm:px-8">
               <DialogHeader>
                 <DialogTitle className="pr-8 text-2xl font-extrabold">Request your free savings analysis</DialogTitle>
                 <DialogDescription className="mt-2 text-primary-foreground/75">Tell us about your practice. There is no cost or obligation.</DialogDescription>
               </DialogHeader>
             </div>
-            <form onSubmit={submit} className="grid gap-5 px-6 py-7 sm:grid-cols-2 sm:px-8" noValidate>
-              {([
+            <form onSubmit={submit} className="grid gap-5 px-4 py-7 sm:grid-cols-2 sm:px-8" noValidate>
+              {[
                 ["name", "Your name", "Jordan Smith", "text"],
                 ["practice", "Practice name", "Bright Smiles Dental", "text"],
                 ["email", "Work email", "jordan@practice.com", "email"],
