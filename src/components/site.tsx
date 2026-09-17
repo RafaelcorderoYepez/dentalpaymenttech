@@ -39,6 +39,13 @@ const formSchema = z.object({
   phone: z.string().trim().min(7, "Please enter a valid phone number.").max(24),
 });
 
+const dialogFields = [
+  ["name", "Your name", "Jordan Smith", "text"],
+  ["practice", "Practice name", "Bright Smiles Dental", "text"],
+  ["email", "Work email", "jordan@practice.com", "email"],
+  ["phone", "Phone number", "(555) 555-0123", "tel"],
+] as const;
+
 export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -60,33 +67,28 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="max-h-[92vh] w-[calc(100%-2rem)] overflow-y-auto border-border bg-card p-0 shadow-float sm:max-w-xl">
         {submitted ? (
-          <div className="px-6 py-14 text-center sm:px-10">
+          <div className="px-4 py-14 text-center sm:px-10">
             <span className="mx-auto grid size-16 place-items-center rounded-full bg-mint text-accent"><ShieldCheck size={34} /></span>
             <DialogTitle className="mt-6 text-3xl font-extrabold text-primary">Request received</DialogTitle>
             <DialogDescription className="mx-auto mt-3 max-w-sm text-base leading-relaxed">Thank you. Our team will contact you soon to arrange your complimentary savings analysis.</DialogDescription>
           </div>
         ) : (
           <>
-            <div className="bg-primary px-6 py-7 text-primary-foreground sm:px-8">
+            <div className="bg-primary px-4 py-7 text-primary-foreground sm:px-8">
               <DialogHeader>
                 <DialogTitle className="pr-8 text-2xl font-extrabold">Request your free savings analysis</DialogTitle>
                 <DialogDescription className="mt-2 text-primary-foreground/75">Tell us about your practice. There is no cost or obligation.</DialogDescription>
               </DialogHeader>
             </div>
-            <form onSubmit={submit} className="grid gap-5 px-6 py-7 sm:grid-cols-2 sm:px-8" noValidate>
-              {([
-                ["name", "Your name", "Jordan Smith", "text"],
-                ["practice", "Practice name", "Bright Smiles Dental", "text"],
-                ["email", "Work email", "jordan@practice.com", "email"],
-                ["phone", "Phone number", "(555) 555-0123", "tel"],
-              ] as const).map(([id, label, placeholder, type]) => (
-                <div className="grid gap-2" key={id}>
+            <form onSubmit={submit} className="grid gap-5 px-4 py-7 sm:grid-cols-2 sm:px-8" noValidate>
+              {dialogFields.map(([id, label, placeholder, type]) => (
+                <div className="grid min-w-0 gap-2" key={id}>
                   <Label htmlFor={id}>{label}</Label>
-                  <Input id={id} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `${id}-error` : undefined} className="h-11" />
+                  <Input id={id} name={id} type={type} placeholder={placeholder} aria-invalid={Boolean(errors[id])} aria-describedby={errors[id] ? `${id}-error` : undefined} className="h-11 max-w-full" />
                   {errors[id] && <p id={`${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
                 </div>
               ))}
-              <Button type="submit" size="lg" variant="hero" className="mt-1 w-full sm:col-span-2">Request my analysis <ArrowRight /></Button>
+              <Button type="submit" size="lg" variant="hero" className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">Request my analysis <ArrowRight /></Button>
               <p className="text-center text-xs text-muted-foreground sm:col-span-2">Your information will only be used to respond to this request.</p>
             </form>
           </>
@@ -133,11 +135,11 @@ export function SiteFooter() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-11 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto_auto]">
-          <SavingsDialog trigger={<Button variant="footer" size="lg" className="h-auto w-full justify-start py-4 text-left sm:w-auto sm:text-lg"><span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary-foreground/15"><Phone /></span><span>Request your free savings analysis</span><ArrowRight className="ml-auto" /></Button>} />
-          <div className="lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Sales</p><a href="tel:+15614549475" className="text-3xl font-extrabold transition-colors hover:text-accent">(954) 451-6808</a></div>
-          <p className="max-w-[220px] font-script text-3xl leading-none text-accent">Partners in a Healthier Tomorrow</p>
+          <SavingsDialog trigger={<Button variant="footer" size="lg" className="h-auto w-full justify-start gap-3 whitespace-normal px-4 py-4 text-left sm:w-auto sm:px-8 sm:text-lg"><span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary-foreground/15"><Phone /></span><span className="min-w-0 flex-1">Request your free savings analysis</span><ArrowRight className="ml-auto shrink-0" /></Button>} />
+          <div className="min-w-0 lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Sales</p><a href="tel:+15614549475" className="break-words text-2xl font-extrabold transition-colors hover:text-accent sm:text-3xl">(954) 451-6808</a></div>
+          <p className="max-w-[220px] break-words font-script text-3xl leading-none text-accent">Partners in a Healthier Tomorrow</p>
         </div>
-        <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Capital PaymentTech</span><span>Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
+        <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Capital PaymentTech</span><span className="leading-relaxed">Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
       </div>
     </footer>
   );
