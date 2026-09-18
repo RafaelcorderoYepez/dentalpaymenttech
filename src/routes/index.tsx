@@ -89,7 +89,7 @@ function Index() {
             <p className="max-w-xl text-lg leading-relaxed text-navy-soft sm:text-xl">Lower processing costs. Better patient payment options. A stronger practice.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <SavingsDialog trigger={<Button variant="hero" size="lg" className="px-5 sm:px-8">See how much you could save <ArrowRight /></Button>} />
-              <Button asChild variant="outline" size="lg" className="px-5 sm:px-8"><a href="tel:+15614549475"><Phone /> Call Sales</a></Button>
+              <Button asChild variant="outline" size="lg" className="px-5 sm:px-8"><a href="tel:+19544516808"><Phone /> Call Sales</a></Button>
             </div>
           </div>
           <div className="rise-in rise-in-delay mt-auto flex flex-col items-end gap-5 pb-3 lg:mt-0 lg:self-end lg:pb-10">
@@ -169,7 +169,7 @@ function Index() {
               {[
                 { icon: MapPin, title: "Address", lines: ["8185 Via Ancho Rd #880396", "Boca Raton, FL 33488"], href: "https://www.google.com/maps/search/?api=1&query=8185+Via+Ancho+Rd+%23880396+Boca+Raton+FL+33488" },
                 { icon: Clock, title: "Hours", lines: ["Monday – Friday", "9:00 AM – 6:00 PM EST"] },
-                { icon: Phone, title: "Phone", lines: ["Sales", "(954) 451-6808"], href: "tel:+15614549475" },
+                { icon: Phone, title: "Phone", lines: ["Sales", "(954) 451-6808"], href: "tel:+19544516808" },
                 { icon: Mail, title: "Email", lines: ["contact@dentalpaymenttech.com"], href: "mailto:contact@dentalpaymenttech.com" },
               ].map(({ icon: Icon, title, lines, href }) => (
                 <article key={title} className="rounded-lg bg-card p-6 shadow-card transition-shadow hover:shadow-float">
