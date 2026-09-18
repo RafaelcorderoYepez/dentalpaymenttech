@@ -183,7 +183,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-11 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto_auto]">
           <SavingsDialog trigger={<Button variant="footer" size="lg" className="h-auto w-full justify-start gap-3 whitespace-normal px-4 py-4 text-left sm:w-auto sm:px-8 sm:text-lg"><span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary-foreground/15"><Phone /></span><span className="min-w-0 flex-1">Request your free savings analysis</span><ArrowRight className="ml-auto shrink-0" /></Button>} />
-          <div className="min-w-0 lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Sales</p><a href="tel:+15614549475" className="break-words text-2xl font-extrabold transition-colors hover:text-accent sm:text-3xl">(954) 451-6808</a></div>
+          <div className="min-w-0 lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Sales</p><a href="tel:+19544516808" className="break-words text-2xl font-extrabold transition-colors hover:text-accent sm:text-3xl">(954) 451-6808</a></div>
           <p className="max-w-[220px] break-words font-script text-3xl leading-none text-accent">Partners in a Healthier Tomorrow</p>
         </div>
         <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Capital PaymentTech</span><span className="leading-relaxed">Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
