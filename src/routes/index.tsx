@@ -30,7 +30,7 @@ import lowDebitRatesImage from "@/assets/home-low-debit-rates.jpg";
 import nextDayFundingImage from "@/assets/home-next-day-funding.jpg";
 import hsaFsaReadyImage from "@/assets/home-hsa-fsa-ready.jpg";
 import paymentLinksImage from "@/assets/home-payment-links.jpg";
-import paymentTerminal from "@/assets/clover-flex-device.png";
+import paymentTerminal from "@/assets/home-clover-flex-mini.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -138,7 +138,7 @@ function Index() {
             </div>
           </div>
           <aside className="relative min-h-[520px] overflow-hidden rounded-lg bg-card shadow-card">
-            <img src={paymentTerminal} alt="Clover Flex payment terminal in a modern dental office" width={928} height={1152} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={paymentTerminal} alt="Clover Flex and Clover Mini payment terminals in a modern dental office" width={768} height={960} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--card)_0%,color-mix(in_oklab,var(--card)_88%,transparent)_24%,transparent_58%)]" />
             <div className="relative p-7 sm:p-8"><h2 className="max-w-xs text-4xl font-black leading-none text-primary">Complimentary Equipment</h2><p className="mt-4 max-w-[240px] text-xl text-navy-soft">Clover devices at no upfront cost</p></div>
           </aside>
