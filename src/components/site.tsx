@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { submitLead } from "@/lib/leads.functions";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import { z } from "zod";
@@ -45,7 +46,9 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget));
     const parsed = formSchema.safeParse(data);
@@ -54,7 +57,22 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSending(true);
+    try {
+      const values = parsed.data as Record<string, string>;
+      await submitLead({
+        data: {
+          formName: "Free Savings Analysis",
+          fields: dialogFields.map(([id, label]) => ({ label, value: String(values[id] ?? "") })),
+          replyTo: values['email'],
+        },
+      });
+      setSubmitted(true);
+    } catch {
+      setErrors({ form: "We couldn't send your request. Please call us or try again." });
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -83,7 +101,8 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
                   {errors[id] && <p id={`${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
                 </div>
               ))}
-              <Button type="submit" size="lg" variant="hero" className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">Request my analysis <ArrowRight /></Button>
+              {errors['form'] && <p className="text-sm font-medium text-destructive sm:col-span-2">{errors['form']}</p>}
+              <Button type="submit" size="lg" variant="hero" disabled={sending} className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">{sending ? "Sending..." : "Request my analysis"} <ArrowRight /></Button>
               <p className="text-center text-xs text-muted-foreground sm:col-span-2">Your information will only be used to respond to this request.</p>
             </form>
           </>
