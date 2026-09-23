@@ -84,16 +84,24 @@ const specialties = ["General Dentistry", "Pediatric Dentistry", "Orthodontics",
 
 const faqs = [
   {
-    q: "Does Clover PracticePay sync with dental practice management software (PMS)?",
-    a: "Yes! PracticePay interfaces directly with top dental software platforms. Payments auto-post straight into the patient ledger, cutting down on manual front-desk work.",
+    q: "Can Clover PracticePay accept HSA and FSA cards?",
+    a: "Yes. Eligible dental practices can accept HSA and FSA cards along with major credit, debit and contactless payment methods — ideal for treatments like crowns, implants and orthodontics.",
   },
   {
-    q: "Can patients pay using HSA/FSA cards or set up payment plans for expensive dental work?",
-    a: "Absolutely. The system accepts all major credit/debit cards, HSA and FSA cards, Apple Pay, Google Pay, as well as customizable recurring payment plans for crowns, implants, or braces.",
+    q: "Can patients pay from their phones?",
+    a: "Yes. Your front desk can send a secure payment link by text so patients can settle balances from their own device, wherever they are.",
   },
   {
-    q: "Is the checkout process HIPAA compliant?",
-    a: "Yes. All patient financial data, card-on-file vaulting, and transaction records follow strict HIPAA data protection and PCI compliance standards.",
+    q: "Does it work with dental practice management software?",
+    a: "Integration options depend on your dental PMS platform. Our team reviews your current workflow and recommends the best setup so payments post smoothly to the patient ledger.",
+  },
+  {
+    q: "Can we collect payments outside the front desk?",
+    a: "Yes. Portable Clover equipment makes it possible to accept payment chairside, in consultation rooms and other appropriate areas of your dental office.",
+  },
+  {
+    q: "Can it support recurring or planned payments?",
+    a: "Available payment features can support card-on-file and scheduled payment plan workflows for larger treatments, subject to your practice setup and applicable requirements.",
   },
 ];
 
