@@ -334,13 +334,17 @@ function PracticePayPage() {
 
       {/* 7. FAQ */}
       <section aria-labelledby="faq-heading" className="bg-surface-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 id="faq-heading" className="text-center text-3xl font-black uppercase text-primary sm:text-4xl">Frequently Asked <span className="text-accent">Questions</span></h2>
-          <Accordion type="single" collapsible className="mt-10 grid gap-4">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+          <div>
+            <p className="font-script text-3xl text-accent">Questions, answered</p>
+            <h2 id="faq-heading" className="mt-2 text-3xl font-black uppercase text-primary sm:text-4xl">Clover PracticePay FAQ</h2>
+            <p className="mt-4 leading-relaxed text-navy-soft">We will tailor the final setup to your dental specialty, patient flow and current systems.</p>
+          </div>
+          <Accordion type="single" collapsible className="h-fit rounded-xl border border-slate-100 bg-card px-6 shadow-sm">
             {faqs.map(({ q, a }, index) => (
-              <AccordionItem key={q} value={`faq-${index}`} className="rounded-xl border border-slate-100 bg-card px-6 shadow-sm transition-shadow hover:shadow-md">
-                <AccordionTrigger className="py-5 text-left text-base font-extrabold text-primary hover:text-accent sm:text-lg">{q}</AccordionTrigger>
-                <AccordionContent className="pb-5 leading-relaxed text-navy-soft">{a}</AccordionContent>
+              <AccordionItem key={q} value={`faq-${index}`}>
+                <AccordionTrigger className="py-5 text-left text-base font-extrabold text-primary hover:text-accent hover:no-underline">{q}</AccordionTrigger>
+                <AccordionContent className="pr-8 leading-relaxed text-navy-soft">{a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
