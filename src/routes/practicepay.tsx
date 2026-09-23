@@ -42,6 +42,7 @@ import rapidDeposit from "@/assets/practicepay-rapid-deposit.jpg";
 import officeManagement from "@/assets/practicepay-office-management.jpg";
 
 export const Route = createFileRoute("/practicepay")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Clover PracticePay for Dental Practices | DentalPaymentTech" },

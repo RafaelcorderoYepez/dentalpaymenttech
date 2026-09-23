@@ -33,6 +33,7 @@ import paymentLinksImage from "@/assets/home-payment-links.jpg";
 import paymentTerminal from "@/assets/home-clover-flex-mini.png";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Dental Payment Solutions | DentalPaymentTech" },
