@@ -60,13 +60,14 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
     setSending(true);
     try {
       const values = parsed.data as Record<string, string>;
-      await submitLead({
+      const res = await submitLead({
         data: {
           formName: "Free Savings Analysis",
           fields: dialogFields.map(([id, label]) => ({ label, value: String(values[id] ?? "") })),
           replyTo: values['email'],
         },
       });
+      if (!res.ok) throw new Error(res.reason);
       setSubmitted(true);
     } catch {
       setErrors({ form: "We couldn't send your request. Please call us or try again." });

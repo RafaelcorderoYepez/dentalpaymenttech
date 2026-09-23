@@ -148,13 +148,14 @@ function QuoteForm() {
     setSending(true);
     try {
       const values = parsed.data as Record<string, string>;
-      await submitLead({
+      const res = await submitLead({
         data: {
           formName: "PracticePay Quote & Demo",
           fields: quoteFields.map(([id, label]) => ({ label, value: String(values[id] ?? "") })),
           replyTo: values['email'],
         },
       });
+      if (!res.ok) throw new Error(res.reason);
       setSubmitted(true);
     } catch {
       setErrors({ form: "We couldn't send your request. Please call us or try again." });
