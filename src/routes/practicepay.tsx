@@ -33,7 +33,7 @@ import cloverMini from "@/assets/clover-mini-device-authentic.png";
 import contactlessPayments from "@/assets/practicepay-contactless-clover-flex.jpg";
 import paymentOptions from "@/assets/practicepay-payment-options.jpg";
 import pmsSync from "@/assets/practicepay-pms-sync.jpg";
-import chairsideCheckout from "@/assets/practicepay-chairside-checkout.jpg";
+import chairsideCheckout from "@/assets/practicepay-chairside-checkout-clover-flex.jpg";
 import treatmentFinancing from "@/assets/practicepay-treatment-financing.jpg";
 import textToPay from "@/assets/practicepay-text-to-pay.jpg";
 import ledgerPosting from "@/assets/practicepay-ledger-posting.jpg";
