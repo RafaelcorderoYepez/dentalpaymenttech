@@ -152,7 +152,7 @@ function QuoteForm() {
         data: {
           formName: "PracticePay Quote & Demo",
           fields: quoteFields.map(([id, label]) => ({ label, value: String(values[id] ?? "") })),
-          replyTo: values.email,
+          replyTo: values['email'],
         },
       });
       setSubmitted(true);
@@ -182,7 +182,7 @@ function QuoteForm() {
           {errors[id] && <p id={`quote-${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
         </div>
       ))}
-      {errors.form && <p className="text-sm font-medium text-destructive sm:col-span-2">{errors.form}</p>}
+      {errors['form'] && <p className="text-sm font-medium text-destructive sm:col-span-2">{errors['form']}</p>}
       <Button type="submit" size="lg" variant="hero" disabled={sending} className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">{sending ? "Sending..." : "Get Custom Dental Quote & Demo"} <ArrowRight /></Button>
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:gap-x-6 sm:col-span-2">
         {trustBadges.map(({ icon: Icon, label }) => (

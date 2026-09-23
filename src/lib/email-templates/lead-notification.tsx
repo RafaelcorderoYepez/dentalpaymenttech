@@ -31,7 +31,7 @@ function LeadNotification({ formName = 'Website form', fields = [] }: Props) {
 
 export const template = {
   component: LeadNotification,
-  subject: (d: Record<string, any>) => `New ${d.formName ?? 'website'} request`,
+  subject: (d: Record<string, any>) => `New ${d['formName'] ?? 'website'} request`,
   displayName: 'Lead notification',
   to: 'contact@dentalpaymenttech.com',
   previewData: {

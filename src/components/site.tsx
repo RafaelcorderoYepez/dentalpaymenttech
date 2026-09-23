@@ -64,7 +64,7 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
         data: {
           formName: "Free Savings Analysis",
           fields: dialogFields.map(([id, label]) => ({ label, value: String(values[id] ?? "") })),
-          replyTo: values.email,
+          replyTo: values['email'],
         },
       });
       setSubmitted(true);
@@ -101,7 +101,7 @@ export function SavingsDialog({ trigger }: { trigger: React.ReactNode }) {
                   {errors[id] && <p id={`${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
                 </div>
               ))}
-              {errors.form && <p className="text-sm font-medium text-destructive sm:col-span-2">{errors.form}</p>}
+              {errors['form'] && <p className="text-sm font-medium text-destructive sm:col-span-2">{errors['form']}</p>}
               <Button type="submit" size="lg" variant="hero" disabled={sending} className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">{sending ? "Sending..." : "Request my analysis"} <ArrowRight /></Button>
               <p className="text-center text-xs text-muted-foreground sm:col-span-2">Your information will only be used to respond to this request.</p>
             </form>

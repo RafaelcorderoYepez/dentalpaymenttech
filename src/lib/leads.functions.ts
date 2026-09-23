@@ -15,7 +15,7 @@ export const submitLead = createServerFn({ method: "POST" })
     const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
     await sendTemplateEmail("lead-notification", "contact@dentalpaymenttech.com", {
       templateData: { formName: data.formName, fields: data.fields },
-      replyTo: data.replyTo,
+      ...(data.replyTo ? { replyTo: data.replyTo } : {}),
     });
     return { ok: true };
   });
