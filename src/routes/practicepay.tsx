@@ -84,16 +84,24 @@ const specialties = ["General Dentistry", "Pediatric Dentistry", "Orthodontics",
 
 const faqs = [
   {
-    q: "Does Clover PracticePay sync with dental practice management software (PMS)?",
-    a: "Yes! PracticePay interfaces directly with top dental software platforms. Payments auto-post straight into the patient ledger, cutting down on manual front-desk work.",
+    q: "Can Clover PracticePay accept HSA and FSA cards?",
+    a: "Yes. Eligible dental practices can accept HSA and FSA cards along with major credit, debit and contactless payment methods — ideal for treatments like crowns, implants and orthodontics.",
   },
   {
-    q: "Can patients pay using HSA/FSA cards or set up payment plans for expensive dental work?",
-    a: "Absolutely. The system accepts all major credit/debit cards, HSA and FSA cards, Apple Pay, Google Pay, as well as customizable recurring payment plans for crowns, implants, or braces.",
+    q: "Can patients pay from their phones?",
+    a: "Yes. Your front desk can send a secure payment link by text so patients can settle balances from their own device, wherever they are.",
   },
   {
-    q: "Is the checkout process HIPAA compliant?",
-    a: "Yes. All patient financial data, card-on-file vaulting, and transaction records follow strict HIPAA data protection and PCI compliance standards.",
+    q: "Does it work with dental practice management software?",
+    a: "Integration options depend on your dental PMS platform. Our team reviews your current workflow and recommends the best setup so payments post smoothly to the patient ledger.",
+  },
+  {
+    q: "Can we collect payments outside the front desk?",
+    a: "Yes. Portable Clover equipment makes it possible to accept payment chairside, in consultation rooms and other appropriate areas of your dental office.",
+  },
+  {
+    q: "Can it support recurring or planned payments?",
+    a: "Available payment features can support card-on-file and scheduled payment plan workflows for larger treatments, subject to your practice setup and applicable requirements.",
   },
 ];
 
@@ -326,13 +334,17 @@ function PracticePayPage() {
 
       {/* 7. FAQ */}
       <section aria-labelledby="faq-heading" className="bg-surface-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 id="faq-heading" className="text-center text-3xl font-black uppercase text-primary sm:text-4xl">Frequently Asked <span className="text-accent">Questions</span></h2>
-          <Accordion type="single" collapsible className="mt-10 grid gap-4">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+          <div>
+            <p className="font-script text-3xl text-accent">Questions, answered</p>
+            <h2 id="faq-heading" className="mt-2 text-3xl font-black uppercase text-primary sm:text-4xl">Clover PracticePay FAQ</h2>
+            <p className="mt-4 leading-relaxed text-navy-soft">We will tailor the final setup to your dental specialty, patient flow and current systems.</p>
+          </div>
+          <Accordion type="single" collapsible className="h-fit rounded-xl border border-slate-100 bg-card px-6 shadow-sm">
             {faqs.map(({ q, a }, index) => (
-              <AccordionItem key={q} value={`faq-${index}`} className="rounded-xl border border-slate-100 bg-card px-6 shadow-sm transition-shadow hover:shadow-md">
-                <AccordionTrigger className="py-5 text-left text-base font-extrabold text-primary hover:text-accent sm:text-lg">{q}</AccordionTrigger>
-                <AccordionContent className="pb-5 leading-relaxed text-navy-soft">{a}</AccordionContent>
+              <AccordionItem key={q} value={`faq-${index}`}>
+                <AccordionTrigger className="py-5 text-left text-base font-extrabold text-primary hover:text-accent hover:no-underline">{q}</AccordionTrigger>
+                <AccordionContent className="pr-8 leading-relaxed text-navy-soft">{a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
