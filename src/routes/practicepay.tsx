@@ -37,7 +37,7 @@ import chairsideCheckout from "@/assets/practicepay-chairside-checkout.jpg";
 import treatmentFinancing from "@/assets/practicepay-treatment-financing.jpg";
 import textToPay from "@/assets/practicepay-text-to-pay.jpg";
 import ledgerPosting from "@/assets/practicepay-ledger-posting.jpg";
-import flexibleReception from "@/assets/practicepay-flexible-reception.jpg";
+import flexibleReception from "@/assets/practicepay-flexible-reception-correct-flex.jpg";
 import rapidDeposit from "@/assets/practicepay-rapid-deposit.jpg";
 import officeManagement from "@/assets/practicepay-office-management.jpg";
 
