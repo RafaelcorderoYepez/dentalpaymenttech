@@ -30,7 +30,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import cloverFlex from "@/assets/clover-flex-device.png";
 import cloverMini from "@/assets/clover-mini-device-authentic.png";
-import contactlessPayments from "@/assets/practicepay-contactless.jpg";
+import contactlessPayments from "@/assets/practicepay-contactless-clover-flex.jpg";
 import paymentOptions from "@/assets/practicepay-payment-options.jpg";
 import pmsSync from "@/assets/practicepay-pms-sync.jpg";
 import chairsideCheckout from "@/assets/practicepay-chairside-checkout.jpg";
