@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
+import { submitLead } from "@/lib/leads.functions";
 import {
   ArrowRight,
   BadgeCheck,
@@ -133,7 +134,9 @@ function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget));
     const parsed = quoteSchema.safeParse(data);
@@ -142,7 +145,22 @@ function QuoteForm() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSending(true);
+    try {
+      const values = parsed.data as Record<string, string>;
+      await submitLead({
+        data: {
+          formName: "PracticePay Quote & Demo",
+          fields: quoteFields.map(([id, label]) => ({ label, value: String(values[id] ?? "") })),
+          replyTo: values.email,
+        },
+      });
+      setSubmitted(true);
+    } catch {
+      setErrors({ form: "We couldn't send your request. Please call us or try again." });
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -164,7 +182,8 @@ function QuoteForm() {
           {errors[id] && <p id={`quote-${id}-error`} className="text-xs font-medium text-destructive">{errors[id]}</p>}
         </div>
       ))}
-      <Button type="submit" size="lg" variant="hero" className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">Get Custom Dental Quote & Demo <ArrowRight /></Button>
+      {errors.form && <p className="text-sm font-medium text-destructive sm:col-span-2">{errors.form}</p>}
+      <Button type="submit" size="lg" variant="hero" disabled={sending} className="mt-1 w-full px-5 sm:col-span-2 sm:px-8">{sending ? "Sending..." : "Get Custom Dental Quote & Demo"} <ArrowRight /></Button>
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:gap-x-6 sm:col-span-2">
         {trustBadges.map(({ icon: Icon, label }) => (
           <span key={label} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-navy-soft"><Icon size={16} className="text-accent" /> {label}</span>
