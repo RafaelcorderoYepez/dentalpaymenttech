@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { submitLead } from "@/lib/leads.functions";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
