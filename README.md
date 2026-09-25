@@ -12,8 +12,56 @@
   </a>
 </p>
 
+<div align="center">
 
-# Dental Payment Tech Site
+# 📟 Dental Payment Tech Site
+
+Sitio web oficial y plataforma de marketing optimizada para alto rendimiento y despliegue rápido.
+
+</div>
+
+
+[![Built with Lovable](https://img.shields.io/badge/Built_with-Lovable-blue)](https://lovable.dev)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react&logoColor=black)](https://react.dev)
+[![Tailwind CSS](https://img.shields.io/badge/CSS-Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+
+Build a modern, highly responsive, professional landing page web app for a medical payment processing company using Tailwind CSS and React.
+
+---
+
+## 🚀 Main Technologies
+
+- **Frontend:** Lovable (https://lovable.dev)
+- **Framework:** React con Vite (`@vitejs/plugin-react`)
+- **Estilos:** Tailwind CSS (`@tailwindcss/vite`)
+- **Rendimiento:** Imágenes optimizadas en formato WebP
+- **Control de Versiones:** Git / GitHub
+
+---
+
+### General Information & Domain
+
+- Domain: MedPaymentTech.com
+
+- Main Title / Branding: Capital PaymentTech | Clover PracticePay
+
+### Visual Style & Color Palette
+
+- Style: Clean, professional, trustworthy, modern healthcare-fintech aesthetics.
+
+- Background Colors: Light gray/off-white background (#F8FAFC / #F1F5F9) with crisp white cards (#FFFFFF).
+
+- Primary Accent Colors: 
+
+  - Deep Navy Blue (#0A2540 or #1E293B) for primary text, main headings, dark footers, and prominent cards.
+
+  - Emerald Green (#10B981 or #059669) for highlights, green accents, checkmark icons, and call-to-action buttons.
+
+- Typography: Sans-serif font (e.g., Inter or Plus Jakarta Sans), clean, high readability, bold headings.
+
+- Layout: Structured multi-column grid layouts with clean iconography, rounded borders, and soft box-shadows.
+
+---
 
 Create a modern, clean, responsive landing page for "HealthPaymentTech.com" designed specifically for modern dental practices. Follow the exact layout, section order, color palette, and visual tone provided in the specification below.
 
