@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { submitLead } from "@/lib/leads.functions";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -200,13 +200,18 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 py-11 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto_auto]">
-          <SavingsDialog trigger={<Button variant="footer" size="lg" className="h-auto w-full justify-start gap-3 whitespace-normal px-4 py-4 text-left sm:w-auto sm:px-8 sm:text-lg"><span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary-foreground/15"><Phone /></span><span className="min-w-0 flex-1">Request your free savings analysis</span><ArrowRight className="ml-auto shrink-0" /></Button>} />
-          <div className="min-w-0 lg:border-l lg:border-primary-foreground/20 lg:pl-10"><p className="text-lg font-bold text-accent">Sales</p><a href="tel:+19544516808" className="break-words text-2xl font-extrabold transition-colors hover:text-accent sm:text-3xl">(954) 451-6808</a></div>
-          <p className="max-w-[220px] break-words font-script text-3xl leading-none text-accent">Partners in a Healthier Tomorrow</p>
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-9 lg:grid-cols-[1.3fr_.7fr_.7fr]">
+          <div>
+            <img src={capitalLogo.url} alt="Capital PaymentTech logo" className="h-9 w-auto max-w-[180px] object-contain brightness-0 invert sm:h-11 lg:h-20 lg:max-w-[320px]" />
+            <p className="mt-5 max-w-md leading-relaxed text-primary-foreground/75">Complete payment solutions for modern dental practices, backed by personal local support.</p>
+            <p className="mt-5 font-script text-3xl text-accent">Partners in a Healthier Tomorrow</p>
+          </div>
+          <div><h2 className="text-sm font-black uppercase text-accent">Explore</h2><div className="mt-4 grid gap-3"><Link to="/" className="hover:text-accent">Payment solutions</Link><Link to="/practicepay" className="hover:text-accent">Clover PracticePay</Link></div></div>
+          <div><h2 className="text-sm font-black uppercase text-accent">Direct contact</h2><p className="mt-4 font-bold">Sales</p><a className="mt-1 block text-xl font-extrabold hover:text-accent" href="tel:+19544516808">(954) 451-6808</a><SavingsDialog trigger={<Button variant="footer" className="mt-5">Request an analysis <ArrowRight /></Button>} /></div>
         </div>
-        <div className="mt-9 flex flex-col gap-4 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/65 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 Capital PaymentTech</span><span className="leading-relaxed">Payments &nbsp; | &nbsp; People &nbsp; | &nbsp; Practices &nbsp; | &nbsp; Brighter Tomorrows</span></div>
+        <div className="mt-10 flex flex-col gap-3 border-t border-primary-foreground/15 pt-6 text-xs font-semibold uppercase text-primary-foreground/60 sm:flex-row sm:justify-between"><span>© 2026 Capital PaymentTech</span><span>Smiles &nbsp;|&nbsp; People &nbsp;|&nbsp; Practices &nbsp;|&nbsp; Brighter Tomorrows</span></div>
+        <p className="mt-6 text-[11px] leading-relaxed text-primary-foreground/55">* Subject to dual pricing program evaluation. The Clover name and logo are owned by Clover Network, Inc., a wholly-owned subsidiary of First Data Corporation, and are registered or used in the U.S. and many foreign countries. All other trademarks, service marks, and trade names referenced in this material are the property of their respective owners.</p>
       </div>
     </footer>
   );
