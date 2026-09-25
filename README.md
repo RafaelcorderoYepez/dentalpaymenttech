@@ -41,7 +41,7 @@ Build a modern, highly responsive, professional landing page web app for a medic
 
 ### General Information & Domain
 
-- Domain: MedPaymentTech.com
+- Domain: DentalPaymentTech.com
 
 - Main Title / Branding: Capital PaymentTech | Clover PracticePay
 
