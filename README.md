@@ -1,3 +1,18 @@
+<p align="center">
+  <a href="https://react.dev/" target="blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="80" alt="React Logo" />
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://tailwindcss.com/" target="blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" width="80" alt="Tailwind CSS Logo" />
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://lovable.dev/" target="blank">
+    <img src="https://lovable.dev/favicon.ico" width="80" alt="Lovable Logo" />
+  </a>
+</p>
+
+
 # Dental Payment Tech Site
 
 Create a modern, clean, responsive landing page for "HealthPaymentTech.com" designed specifically for modern dental practices. Follow the exact layout, section order, color palette, and visual tone provided in the specification below.
